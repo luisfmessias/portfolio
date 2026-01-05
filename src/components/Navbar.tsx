@@ -1,89 +1,73 @@
-
 import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import {Heart, Menu, X} from 'lucide-react'
+import { Link } from 'react-router-dom'
+import menu from '../public/AssetsPortifolio/nav/menu.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const location = useLocation()
 
-  const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/resgate', label: 'Resgate' },
-    { path: '/sobre-nos', label: 'Sobre Nós' },
-    { path: '/contato', label: 'Contato' },
-    { path: '/doacao', label: 'Doação' },
-    { path: '/apadrinhamento', label: 'Apadrinhamento' },
+  const links = [
+    { label: 'Home', href: '#home' },
+    { label: 'Projetos', href: '#projetos' },
+    { label: 'Sobre', href: '#sobre' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Serviços', href: '#serviços' },
+    { label: 'Contato', href: '#contato' },
   ]
 
   return (
-    <nav className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center">
-            <div>
-              <img src="./src/assets/logo.png" className="h-40 w-50"
-              alt="" />
-            </div>
+    <nav className="fixed top-0 w-full z-[100] bg-black/1 backdrop-blur-xl font-mono">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-1">
+        <div className="flex items-center justify-between md:justify-start h-16 text-white">
+          
+          {/* LOGO (Igual ao original) */}
+          <Link to="/" className="text-5xl font-bold mt-8 tracking-wide drop-shadow-[0_0_16px_rgba(21,154,156,0.6)]">
+            <span className="text-white">L</span>
+            <span className="text-[#00C5C8]">F</span>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  location.pathname === item.path
-                    ? 'text-[#764BA2] bg-[#8152b126]'
-                    : 'text-gray-700 hover:text-[#764BA2] hover:bg-[#8152b126]'
-                }`}
+          {/* MENU DESKTOP (Mantendo exatamente o seu design original) */}
+          <div className="hidden md:flex gap-7 m-auto mt-8 text-[#C8C8C8] text-xl tracking-wide animate-slideInLeft">
+            {links.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="relative transition-all duration-400 ease-out hover:-translate-y-[1px] drop-shadow-[0_0px_8px_rgba(21,154,156,0.35)] hover:drop-shadow-[0_0px_8px_rgba(21,154,156,0.55)] after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1.5 after:h-[2px] after:w-0 after:rounded-full after:bg-[#159A9C] after:transition-all after:duration-300 after:ease-out hover:after:w-full"
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
+          {/* BOTÃO MOBILE (Usando seu menu.svg) */}
+          <div className="md:hidden mt-8">
+            <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-orange-600 p-2"
+              className="focus:outline-none p-1"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              <img src={menu} alt="Menu" className="w-10 h-10" />
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden"
+      {/* MENU MOBILE DROP-DOWN */}
+      <div
+        className={`md:hidden absolute top-full left-0 w-full bg-black/90 backdrop-blur-10xl transition-all duration-300 border-b border-[#159A9C]/20 ${
+          isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+      >
+        <div className="flex flex-col items-center py-10 gap-8">
+          {links.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className="text-[#C8C8C8] text-2xl tracking-widest hover:text-white"
             >
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                      location.pathname === item.path
-                        ? 'text-orange-600 bg-orange-50'
-                        : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              {item.label}
+            </a>
+          ))}
+        </div>
       </div>
     </nav>
   )

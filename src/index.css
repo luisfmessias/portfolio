@@ -1,28 +1,134 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  }
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
-@layer components {
-  .btn-primary {
-    @apply bg-gradient-to-r from-orange-500 to-amber-500 text-white px-6 py-3 rounded-full font-semibold hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl;
-  }
-  
-  .btn-secondary {
-    @apply border-2 border-orange-500 text-orange-500 px-6 py-3 rounded-full font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300;
-  }
-  
-  .card {
-    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6;
-  }
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+
+    /* 1. CONTAINER PRINCIPAL: Reduzi o gap para subir tudo */
+    #home {
+        height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .intro-container,
+    #home>div:nth-child(2) {
+        flex-direction: row !important;
+        gap: 1rem;
+        margin-top: -1rem;
+        margin-bottom: 0px !important;
+    }
+
+
+    /* 2. AVATAR TOTALMENTE REDONDO */
+    .circulo {
+        justify-content: center;
+        align-items: center;
+        margin-top: -22rem !important;
+        width: 40% !important;
+        height: 40% !important;
+        border-radius: 9999px !important;
+        margin-left: -60px;
+        
+    }
+
+
+    .fala{
+        display: none;
+    }
+
+    .circulo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Garante que a imagem preencha o círculo sem achatar */
+    }
+
+    /* 3. COLAR O TEXTO "HEY, I'M..." */
+    #home div:nth-child(2) .font-mono {
+        gap: 0px !important;
+        margin-top: -22rem !important;
+    }
+
+    .luis {
+        font-size: 1.3rem;
+        margin-top: -15px;
+        margin-bottom: -20px;
+    }
+
+    .ent {
+        font-size: 1.2rem;
+    }
+
+    
+    #home>div:nth-child(3) {
+        margin-top: 5rem !important;
+        gap: 0px !important;
+    }
+
+    #home h1:first-of-type {
+        font-size: 1.4rem !important;
+        margin: 0 !important;
+        line-height: 1.2;
+    }
+
+    #home h1:last-of-type {
+        font-size: 2.3rem !important;
+        font-weight: 800;
+        line-height: 1;
+        margin-bottom: 30px;
+    }
+
+    /* 5. BOTÕES E REDES SOCIAIS */
+    #home .flex.gap-6 {
+        gap: 1rem;
+        width: 100%;
+        max-width: 280px;
+        margin-top: 1.3rem;
+        
+    }
+
+    #home a {
+        width: 100% !important;
+        height: 68px !important;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+        white-space: nowrap;
+        padding: 20px 60px;
+    }
+
+    .social-links,
+    #home .flex.gap-5 {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .ctt{
+        font-size: 3rem;
+    }
+
+    .imgs{
+        height: 180px !important;
+    }
 }

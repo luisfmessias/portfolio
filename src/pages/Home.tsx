@@ -1,173 +1,160 @@
+import { useEffect, useState } from 'react'
+import avatar from '../public/AssetsPortifolio/Hero/EuHi.png'
+import setalado from '../public/AssetsPortifolio/Hero/right-up.png'
+import download from '../public/AssetsPortifolio/Hero/downloads.png'
+import github from '../public/AssetsPortifolio/Hero/githubAzul.png'
+import linkedin from '../public/AssetsPortifolio/Hero/linkedinAzul.png'
+import instagram from '../public/AssetsPortifolio/Hero/instagramAzul.png'
 
-import React from 'react'
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import {Heart, PawPrint,  Users, Home as HomeIcon, Award} from 'lucide-react'
-import PawAnimation from '../components/PawAnimation'
+export default function Home() {
+  const fullStackText = 'Full Stack'
+  const nameText = 'LUIS FERNANDO'
 
+  // Estados de animação original
+  const [typedText, setTypedText] = useState('')
+  const [showButtons, setShowButtons] = useState(false)
+  const [showSocials, setShowSocials] = useState(false)
+  const [showAvatar, setShowAvatar] = useState(false)
+  const [showChips, setShowChips] = useState(false)
+  const [typedName, setTypedName] = useState('')
+  const [showWelcome, setShowWelcome] = useState(false)
 
-const Home = () => {
-  const stats = [
-    { icon: PawPrint, number: '2000+', label: 'Animais Resgatados' },
-    { icon: HomeIcon, number: '1500+', label: 'Adoções Realizadas' },
-    { icon: Users, number: '11', label: 'Anos de Dedicação' },
-    { icon: Award, number: '100%', label: 'Amor e Cuidado' },
-  ]
+  // ESTADO DO BALÃO DE FALA
+  const [isHovered, setIsHovered] = useState(false)
+
+  useEffect(() => {
+    // Sequência de entrada (Avatar -> Nome -> Full Stack -> Botões)
+    setTimeout(() => setShowAvatar(true), 600)
+
+    let nameIndex = 0
+    const nameInterval = setInterval(() => {
+      setTypedName(nameText.slice(0, nameIndex + 1))
+      nameIndex++
+
+      if (nameIndex === nameText.length) {
+        clearInterval(nameInterval)
+        setTimeout(() => setShowWelcome(true), 200)
+
+        let fsIndex = 0
+        const fsInterval = setInterval(() => {
+          setTypedText(fullStackText.slice(0, fsIndex + 1))
+          fsIndex++
+
+          if (fsIndex === fullStackText.length) {
+            clearInterval(fsInterval)
+            setTimeout(() => setShowChips(true), 300)
+            setTimeout(() => setShowButtons(true), 700)
+            setTimeout(() => setShowSocials(true), 1100)
+          }
+        }, 60)
+      }
+    }, 70)
+
+    return () => clearInterval(nameInterval)
+  }, [])
 
   return (
-    <div className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r  from-[#6f8aff] to-[#764BA2] from--10% ">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              Cada Animal Merece
-              <span className="block text-[#7aceff]">Uma Segunda Chance</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-              Há mais de 11 anos, a AMAAR transforma vidas através do amor, 
-              cuidado e dedicação aos animais em situação de abandono em Maringá.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/doacao"
-                className="bg-white text-[#764BA2] px-8 py-4 rounded-full font-bold text-lg hover:bg-[#9d66d41f] hover:text-white hover:border-2 border-white transition-colors shadow-lg"
-              >
-                Fazer Doação
-              </Link>
-              <Link
-                to="/apadrinhamento"
-                className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#764BA2] transition-colors"
-              >
-                Apadrinhar um Pet
-              </Link>
-            </div>
-          </motion.div>
-        </div>
+    <section id="home" className="min-h-screen bg-transparent flex items-center relative overflow-hidden">
+      
+      {/* BOLA DE FUNDO (GLOW) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20vw] h-[20vw] rounded-full bg-[#159A9C] blur-[130px] opacity-60 shadow-[0_0_40px_#159A9C] pointer-events-none" />
+
+      {/* COLUNA ESQUERDA: AVATAR + SAUDAÇÃO */}
+      <div className="tudo absolute left-28 flex flex-col gap-6 items-center">
         
-        {/* Floating elements */}
-        <PawAnimation />
-
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="bg-gradient-to-r  from-[#4a6bff] to-[#7d40b9] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="h-8 w-8 text-white" />
-                </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
+        {/* BALÃO DE FALA (Aparece no Hover) */}
+        <div 
+          className={`
+            fala
+            absolute -top-14 left-1/2 -translate-x-1/2 z-20 font
+            bg-white text-[#159A9C] font-bold py-2 px-4 rounded-2xl
+            shadow-[0_10px_25px_rgba(0,0,0,0.2)]
+            transition-all duration-300 ease-out pointer-events-none
+            before:content-[''] before:absolute before:top-full before:left-1/2 
+            before:-translate-x-1/2 before:border-8 before:border-transparent 
+            before:border-t-white
+            ${isHovered ? 'opacity-100 scale-100 -translate-y-2' : 'opacity-0 scale-50 translate-y-4'}
+          `}
+        >
+          <p className="whitespace-nowrap text-sm tracking-tight">Oi! Eu sou o Luis.</p>
         </div>
-      </section>
 
-      {/* Mission Section */}
-      <section className="py-20 bg-gradient-to-r from-[#667eea28] to-[#e711f229]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Nossa Missão é Salvar Vidas
-              </h2>
-              <p className="text-lg text-gray-700 mb-6">
-                A AMAAR nasceu do amor incondicional aos animais e da necessidade 
-                urgente de dar uma segunda chance àqueles que foram abandonados. 
-                Cada resgate é uma nova história de esperança.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="bg-[#764BA2] w-2 h-2 rounded-full mt-2"></div>
-                  <p className="text-gray-700">Resgate de animais em situação de risco</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="bg-[#764BA2] w-2 h-2 rounded-full mt-2"></div>
-                  <p className="text-gray-700">Cuidados veterinários completos</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="bg-[#764BA2] w-2 h-2 rounded-full mt-2"></div>
-                  <p className="text-gray-700">Castração responsável</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="bg-[#764BA2] w-2 h-2 rounded-full mt-2"></div>
-                  <p className="text-gray-700">Busca por lares amorosos</p>
-                </div>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <img
-                src="./src/assets/dogs.png"
-                alt="Cão resgatado sendo cuidado"
-                className="rounded-2xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
-                <div className="text-2xl font-bold text-purple-700">+11</div>
-                <div className="text-gray-600">Anos de amor</div>
-              </div>
-            </motion.div>
-          </div>
+        {/* CÍRCULO DO AVATAR */}
+        <div
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className={`
+            circulo
+            w-40 h-40 rounded-full overflow-hidden
+            shadow-[0_0_130px_rgba(0,197,200,0.5)]
+            transition-all duration-700 cursor-pointer relative z-10
+            ${showAvatar ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-180 scale-0'}
+            hover:scale-110 hover:shadow-[0_0_180px_rgba(0,197,200,0.7)] hover:rotate-[5deg]
+          `}
+        >
+          <img src={avatar} alt="Luis Fernando" className="w-full h-full object-cover" />
         </div>
-      </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-[#6f8aff] to-[#764BA2]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Seja Parte Desta Transformação
-            </h2>
-            <p className="text-xl text-white/90 mb-8">
-              Sua ajuda pode salvar uma vida hoje. Cada doação, cada adoção, 
-              cada gesto de amor faz a diferença na vida de um animal.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/resgate"
-                className="bg-white text-[#764BA2] px-8 py-4 rounded-full font-bold text-lg hover:bg-[#9d66d41f] hover:text-white hover:border-2 border-white transition-colors shadow-lg"
-              >
-                Reportar Resgate
-              </Link>
-              <Link
-                to="/contato"
-                className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#764BA2] transition-colors"
-              >
-                Entre em Contato
-              </Link>
+        {/* TEXTO DE SAUDAÇÃO */}
+        <div className="font-mono tracking-wide text-center font-mono">
+          <p className="ent text-white text-3xl">HEY, I'M</p>
+          <p className="luis text-[#0fe4e7] text-4xl min-h-[48px]">{typedName}</p>
+          <p className={`ent text-white text-3xl transition-all duration-500 ${showWelcome ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
+            WELCOME!
+          </p>
+        </div>
+      </div>
+
+      {/* CONTEÚDO CENTRAL */}
+      <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center text-center gap-10 max-w-3xl w-full">
+        
+        {/* TÍTULOS PRINCIPAIS */}
+        <div className="font-mono tracking-wide mt-24">
+          <h1 className="md:text-6xl text-white whitespace-nowrap">Desenvolvedor Junior</h1>
+          <h1 className="text-5xl md:text-5xl text-[#00C5C8] whitespace-nowrap min-h-[1.2em]">
+            {typedText}
+          </h1>
+        </div>
+
+        {/* SKILL CHIPS (BALÕEZINHOS) */}
+        <div className="flex flex-wrap justify-center gap-4">
+          {["Web Designer", "UI/UX", "Frontend", "Backend"].map((item, index) => (
+            <span
+              key={item}
+              style={{ transitionDelay: `${index * 120}ms` }}
+              className={`
+                px-5 py-2 rounded-full border border-[#067c7e]
+                flex items-center justify-center shadow-[0_0_10px_#00c5c818]
+                text-[#63b4b6] text-sm tracking-wide backdrop-blur-md
+                transition-all duration-500 ease-out hover:bg-[#159A9C]/10 hover:scale-105
+                ${showChips ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}
+              `}
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+
+        {/* BOTÕES DE AÇÃO */}
+        <div className={`flex gap-6 transition-all duration-700 ${showButtons ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <a href="#projetos" className="relative overflow-hidden flex items-center justify-center gap-3 px-9 py-4 rounded-xl border border-b-8 text-white font-mono text-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_70px_rgba(0,255,255,0.15)] before:content-[''] before:absolute before:top-[-50%] before:left-[-50%] before:w-[200%] before:h-[200%] before:bg-[linear-gradient(0deg,transparent,transparent_30%,rgba(0,255,255,0.3))] before:rotate-[-45deg] before:opacity-0 before:transition-all before:duration-500 hover:before:opacity-100 hover:before:translate-y-full">
+            MEUS PROJETOS <img src={setalado} className="w-4 h-4 relative z-10" />
+          </a>
+
+          <a href="#cv" className="relative overflow-hidden flex items-center justify-center gap-3 px-11 py-4 rounded-xl border border-b-8 text-white font-mono text-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_70px_rgba(0,255,255,0.15)] before:content-[''] before:absolute before:top-[-50%] before:left-[-50%] before:w-[200%] before:h-[200%] before:bg-[linear-gradient(0deg,transparent,transparent_30%,rgba(0,255,255,0.3))] before:rotate-[-45deg] before:opacity-0 before:transition-all before:duration-500 hover:before:opacity-100 hover:before:translate-y-full">
+            DOWNLOAD CV <img src={download} className="w-4 h-4 relative z-10" />
+          </a>
+        </div>
+
+        {/* REDES SOCIAIS HERO */}
+        <div className={`flex gap-5 transition-all duration-700 ${showSocials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          {[github, linkedin, instagram].map((icon, index) => (
+            <div key={index} className="w-10 h-10 rounded-full border border-[#044D4E] flex items-center justify-center shadow-[0_0_10px_#00c5c818] hover:shadow-[0_0_100px_#00C5C8] transition-all duration-300 hover:scale-110 hover:rotate-[20deg] hover:cursor-pointer">
+              <img src={icon} className="w-5 h-5" />
             </div>
-          </motion.div>
+          ))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   )
 }
-
-export default Home
