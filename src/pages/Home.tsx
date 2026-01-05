@@ -10,7 +10,6 @@ export default function Home() {
   const fullStackText = 'Full Stack'
   const nameText = 'LUIS FERNANDO'
 
-  // Estados de animação original
   const [typedText, setTypedText] = useState('')
   const [showButtons, setShowButtons] = useState(false)
   const [showSocials, setShowSocials] = useState(false)
@@ -23,7 +22,7 @@ export default function Home() {
   const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
-    // Sequência de entrada (Avatar -> Nome -> Full Stack -> Botões)
+    
     setTimeout(() => setShowAvatar(true), 600)
 
     let nameIndex = 0
@@ -59,10 +58,9 @@ export default function Home() {
       {/* BOLA DE FUNDO (GLOW) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20vw] h-[20vw] rounded-full bg-[#159A9C] blur-[130px] opacity-60 shadow-[0_0_40px_#159A9C] pointer-events-none" />
 
-      {/* COLUNA ESQUERDA: AVATAR + SAUDAÇÃO */}
       <div className="tudo absolute left-28 flex flex-col gap-6 items-center">
         
-        {/* BALÃO DE FALA (Aparece no Hover) */}
+        {/* BALÃO DE FALA (Hover) */}
         <div 
           className={`
             fala
@@ -79,7 +77,6 @@ export default function Home() {
           <p className="whitespace-nowrap text-sm tracking-tight">Oi! Eu sou o Luis.</p>
         </div>
 
-        {/* CÍRCULO DO AVATAR */}
         <div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -95,7 +92,7 @@ export default function Home() {
           <img src={avatar} alt="Luis Fernando" className="w-full h-full object-cover" />
         </div>
 
-        {/* TEXTO DE SAUDAÇÃO */}
+        {/* SAUDAÇÃO */}
         <div className="font-mono tracking-wide text-center font-mono">
           <p className="ent text-white text-3xl">HEY, I'M</p>
           <p className="luis text-[#0fe4e7] text-4xl min-h-[48px]">{typedName}</p>
@@ -105,10 +102,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* CONTEÚDO CENTRAL */}
       <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center text-center gap-10 max-w-3xl w-full">
         
-        {/* TÍTULOS PRINCIPAIS */}
         <div className="font-mono tracking-wide mt-24">
           <h1 className="md:text-6xl text-white whitespace-nowrap">Desenvolvedor Junior</h1>
           <h1 className="text-5xl md:text-5xl text-[#00C5C8] whitespace-nowrap min-h-[1.2em]">
@@ -116,7 +111,7 @@ export default function Home() {
           </h1>
         </div>
 
-        {/* SKILL CHIPS (BALÕEZINHOS) */}
+        {/* SKILL CHIPS */}
         <div className="flex flex-wrap justify-center gap-4">
           {["Web Designer", "UI/UX", "Frontend", "Backend"].map((item, index) => (
             <span
@@ -135,7 +130,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* BOTÕES DE AÇÃO */}
         <div className={`flex gap-6 transition-all duration-700 ${showButtons ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <a href="#projetos" className="relative overflow-hidden flex items-center justify-center gap-3 px-9 py-4 rounded-xl border border-b-8 text-white font-mono text-lg transition-all duration-200 hover:scale-105 hover:shadow-[0_0_70px_rgba(0,255,255,0.15)] before:content-[''] before:absolute before:top-[-50%] before:left-[-50%] before:w-[200%] before:h-[200%] before:bg-[linear-gradient(0deg,transparent,transparent_30%,rgba(0,255,255,0.3))] before:rotate-[-45deg] before:opacity-0 before:transition-all before:duration-500 hover:before:opacity-100 hover:before:translate-y-full">
             MEUS PROJETOS <img src={setalado} className="w-4 h-4 relative z-10" />
@@ -146,7 +140,6 @@ export default function Home() {
           </a>
         </div>
 
-        {/* REDES SOCIAIS HERO */}
         <div className={`flex gap-5 transition-all duration-700 ${showSocials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           {[github, linkedin, instagram].map((icon, index) => (
             <div key={index} className="w-10 h-10 rounded-full border border-[#044D4E] flex items-center justify-center shadow-[0_0_10px_#00c5c818] hover:shadow-[0_0_100px_#00C5C8] transition-all duration-300 hover:scale-110 hover:rotate-[20deg] hover:cursor-pointer">

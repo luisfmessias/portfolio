@@ -29,7 +29,7 @@ const services = [
     }
 ];
 
-// --- ANIMAÇÕES ---
+// ANIMAÇÕES 
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -45,7 +45,7 @@ const textHeaderVariants = {
 };
 
 const cardVariants = {
-    hidden: { opacity: 0, y: 70 }, // Aumentado levemente o Y para um efeito de subida mais visível
+    hidden: { opacity: 0, y: 70 }, 
     visible: {
         opacity: 1,
         y: 0,
@@ -85,7 +85,7 @@ const iconFloatingVariants = {
 
 const glowVariants = {
     animate: {
-        opacity: [0.2, 0.5, 0.2], // Ajustado para não estourar tanto o brilho fixo
+        opacity: [0.2, 0.5, 0.2], 
         scale: [1.5, 2, 1.5],
         transition: {
             duration: 4,
@@ -105,7 +105,7 @@ const Servicos = () => {
             variants={containerVariants}
             className="min-h-screen flex flex-col items-center justify-center bg-transparent text-white p-4 py-20"
         >
-            {/* Título da Seção */}
+            
             <div className="text-center mb-20">
                 <motion.h2
                     variants={textHeaderVariants}
@@ -121,7 +121,7 @@ const Servicos = () => {
                 </motion.p>
             </div>
 
-            {/* Grid de Cards */}
+            {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 {services.map((service) => (
                     <motion.div
@@ -133,12 +133,12 @@ const Servicos = () => {
                         whileHover="hover"
                         className="relative shadow-[0_0_50px_-15px_rgba(34,211,238,0.14)] border border-cyan-900/40 backdrop-blur-sm rounded-[2.5rem] p-10 flex flex-col items-center transition-all duration-300 hover:shadow-[0_0_40px_-15px_rgba(34,211,238,0.4)] group hover:scale-105 hover:bg-cyan-950/20 hover:border-cyan-500/30 hover:bg-gradient-to-br hover:from-cyan-900/10 hover:to-cyan-800/10 cursor-pointer"
                     >
-                        {/* Badge de número */}
+                        {/* números */}
                         <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-cyan-950/40 border border-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold text-lg shadow-inner">
                             {service.id}
                         </div>
 
-                        {/* Container do Ícone */}
+                        {/* Ícone */}  
                         <motion.div variants={childVariants} className="mb-10 relative">
                             <motion.div
                                 variants={glowVariants}
@@ -159,7 +159,7 @@ const Servicos = () => {
                             </motion.div>
                         </motion.div>
 
-                        {/* Título */}
+                        
                         <motion.h3
                             variants={childVariants}
                             className="text-2xl font-bold mb-4 tracking-tight transition-colors"
@@ -172,7 +172,7 @@ const Servicos = () => {
                             {service.description}
                         </motion.p>
 
-                        {/* Lista de Features */}
+                        {/* Features */}
                         <ul className="w-full space-y-4">
                             {service.features.map((feature, idx) => (
                                 <motion.li

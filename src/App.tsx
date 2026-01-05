@@ -1,4 +1,4 @@
-import { useState } from 'react' // Importe o useState
+import { useState } from 'react' 
 import { BrowserRouter as Router } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Projetos from './components/projetos'
@@ -10,10 +10,10 @@ import Contato from './components/Contato'
 import AnimatedBackground from './components/grid'
 
 function App() {
-  // 1. Criar o estado para rastrear o mouse
+  // estado para rastrear o mouse
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  // 2. Função para atualizar a posição
+  // atualizar a posição
   const handleMouseMove = (e) => {
     setMousePosition({
       x: e.clientX,
@@ -22,13 +22,13 @@ function App() {
   };
 
   return (
-    // 3. Adicionar o onMouseMove no container principal
+    // onMouseMove no container principal
     <div onMouseMove={handleMouseMove} className="relative">
       <Router>
-        {/* 4. Renderizar o background passando a posição do mouse */}
+        {/* Renderizar o background passando a posição do mouse */}
         <AnimatedBackground mousePosition={mousePosition} />
         
-        <div className="relative z-10 "> {/* Garante que o conteúdo fique acima do grid */}
+        <div className="relative z-10 "> {/* conteúdo acima do grid */}
           <Navbar />
           <Home />
           <Projetos />

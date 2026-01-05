@@ -16,7 +16,7 @@ const Sobre = () => {
   return (
     <section id='sobre' className="min-h-screen flex flex-col items-center justify-center bg-transparent px-4 py-20 overflow-hidden">
       
-      {/* Título e Subtítulo */}
+      
       <div className="text-center text-white mb-16">
         <motion.h1 
           variants={fadeInUp}
@@ -40,25 +40,23 @@ const Sobre = () => {
         </motion.p>
       </div>
 
-      {/* Conteúdo Principal */}
+      
       <div className="flex flex-col md:flex-row items-center justify-center max-w-6xl w-full gap-12 md:gap-44">
         
-        {/* Lado Esquerdo: Imagem e Decorações */}
         <div className="relative">
           
-          {/* FOTO - Ajustada com w-64 h-64 no mobile e md:w-80 md:h-80 no PC */}
+
           <motion.div 
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ delay: 0.4 }} // Reduzi o delay de 4 para 0.4 para ser mais rápido
+            transition={{ delay: 0.4 }} 
             className="relative w-64 h-64 md:w-80 md:h-80 rounded-[40px] overflow-hidden shadow-[0_0_80px#00c5c845] border border-[#159a9c]/90 z-20"
           >
             <img src={eu} alt="Minha foto" className="w-full h-full object-cover scale-110" />
           </motion.div>
 
-          {/* QUADRADOS DECORATIVOS */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ 
@@ -89,7 +87,6 @@ const Sobre = () => {
             className="absolute top-48 left-48 md:top-64 md:left-72 w-16 h-16 md:w-20 md:h-20 border border-[#159a9c]/20 shadow-[0_0_80px#00c5c863] rounded-lg bg-[#00c5c81a] -z-10"
           />
 
-          {/* BALÃO - Ajustado para não sumir no mobile */}
           <motion.div 
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -101,14 +98,13 @@ const Sobre = () => {
           </motion.div>
         </div>
 
-        {/* Lado Direito: Texto Parágrafo por Parágrafo */}
         <div className="flex-1 text-[#b6b5b5] space-y-6 max-w-lg md:text-lg leading-relaxed text-justify font-mono">
           <motion.p 
             variants={fadeInUp} 
             initial="hidden" 
             whileInView="visible" 
             viewport={{ once: true }} 
-            transition={{ delay: 0.6 }} // Delays corrigidos para leitura fluida
+            transition={{ delay: 0.6 }}
           >
             Hey! Eu sou o <strong className='text-white'>Luis Fernando</strong>, desenvolvedor <strong className='text-white'>júnior full stack</strong>, focado em transformar ideias em interfaces claras, funcionais e bem estruturadas.
           </motion.p>

@@ -19,13 +19,13 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-1">
         <div className="flex items-center justify-between md:justify-start h-16 text-white">
           
-          {/* LOGO (Igual ao original) */}
+          
           <Link to="/" className="text-5xl font-bold mt-8 tracking-wide drop-shadow-[0_0_16px_rgba(21,154,156,0.6)]">
             <span className="text-white">L</span>
             <span className="text-[#00C5C8]">F</span>
           </Link>
 
-          {/* MENU DESKTOP (Mantendo exatamente o seu design original) */}
+          {/* MENU DESKTOP */}
           <div className="hidden md:flex gap-7 m-auto mt-8 text-[#C8C8C8] text-xl tracking-wide animate-slideInLeft">
             {links.map((item) => (
               <a
@@ -38,7 +38,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* BOTÃO MOBILE (Usando seu menu.svg) */}
+          {/* BOTÃO MOBILE */}
           <div className="md:hidden mt-8">
             <button 
               onClick={() => setIsOpen(!isOpen)}
@@ -50,7 +50,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* MENU MOBILE DROP-DOWN */}
+      {/* MENU MOBILE */}
       <div
         className={`md:hidden absolute top-full left-0 w-full bg-black/90 backdrop-blur-10xl transition-all duration-300 border-b border-[#159A9C]/20 ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'

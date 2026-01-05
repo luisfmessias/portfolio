@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
-// Imports das imagens (Mantenha seus caminhos atuais)
 import eu from '../public/AssetsPortifolio/Skills/EuShowing.png'
 import next from '../public/AssetsPortifolio/Skills/Next.png'
 import react from '../public/AssetsPortifolio/Skills/react.png'
@@ -39,13 +38,13 @@ const Skills = () => {
     { img: figma, color: 'rgba(162,89,255,1)', rot: 360, name: 'Figma' },
   ]
 
-  // CONFIGURAÇÃO DE ANIMAÇÃO EM CASCATA (STAGGER)
+  // CONFIGURAÇÃO DE ANIMAÇÃO
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1, // Tempo entre o aparecimento de cada ícone
+        staggerChildren: 0.1,
       },
     },
   }
@@ -69,7 +68,7 @@ const Skills = () => {
       id="skills"
       className="min-h-screen flex flex-col items-center justify-center bg-transparent text-white p-4"
     >
-      {/* TÍTULO */}
+      
       <div className="text-center mb-16">
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
@@ -137,7 +136,7 @@ const Skills = () => {
           </h2>
         </div>
 
-        {/* GRID DE ÍCONES COM ANIMAÇÃO EM CASCATA */}
+        {/* GRID DE ÍCONES */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -151,7 +150,7 @@ const Skills = () => {
             return (
               <motion.div
                 key={index}
-                variants={itemVariants} // Cada ícone herda o comportamento do pai
+                variants={itemVariants} 
                 onClick={() => setTechAtiva(ativo ? null : index)}
                 whileHover={{
                   scale: 1.15,

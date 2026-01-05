@@ -6,16 +6,15 @@ import linkedin from '../public/AssetsPortifolio/Contato/linkedin.png'
 import gh from '../public/AssetsPortifolio/Contato/github.png'
 
 const Contato = () => {
-  // 1. Container Principal (Cascata Geral)
+  // Container Principal
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.4 } // Intervalo entre Título -> Texto -> Botão -> Div Social
+      transition: { staggerChildren: 0.4 }
     }
   }
 
-  // 2. Itens que sobem (Título, Texto, Botão, Email)
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
@@ -25,24 +24,23 @@ const Contato = () => {
     }
   }
 
-  // 3. Container Interno das Redes Sociais (Cascata dos Ícones)
   const socialGroupVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: { 
-        staggerChildren: 0.15, // Velocidade da entrada de cada ícone
-        delayChildren: 0.2     // Espera um pouco antes de começar o primeiro ícone
+        staggerChildren: 0.15, 
+        delayChildren: 0.2  
       }
     }
   }
 
-  // 4. Animação Individual do Ícone (Deslizando para a direita)
+  
   const singleIconVariants = {
-    hidden: { opacity: 0, x: -30 }, // Começa 30px à esquerda
+    hidden: { opacity: 0, x: -30 },
     visible: { 
       opacity: 1, 
-      x: 0,                          // Move-se para a posição original (direita)
+      x: 0,
       transition: { type: "spring", stiffness: 120 } 
     }
   }
@@ -86,9 +84,9 @@ const Contato = () => {
           ENTRAR EM CONTATO
         </motion.a>
 
-        {/* CONTAINER DAS REDES SOCIAIS COM ANIMAÇÃO PRÓPRIA */}
+        {/* CONTAINER DAS REDES SOCIAIS */}
         <motion.div 
-          variants={socialGroupVariants} // Ativa a cascata dos ícones
+          variants={socialGroupVariants}
           className="flex justify-center space-x-10 mt-10 p-5 rounded-3xl shadow-[0_0_10px_rgba(0,0,0,0.1)] w-fit mx-auto"
         >
           {[
@@ -102,7 +100,7 @@ const Contato = () => {
               href={social.url} 
               target="_blank" 
               rel="noopener noreferrer"
-              variants={singleIconVariants} // Cada ícone faz o movimento individual
+              variants={singleIconVariants}
               whileHover={{ scale: 1.4, rotate: 5 }}
             >
               <img src={social.src} alt={social.alt} className="w-6 h-6" />

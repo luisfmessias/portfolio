@@ -15,7 +15,7 @@ export default function AnimatedBackground({ mousePosition }: AnimatedBackground
   const y1 = useTransform(scrollY, [0, 1000], [0, 200]);
   const y2 = useTransform(scrollY, [0, 1000], [0, -150]);
 
-  // 1. Memoriza as partículas para elas ficarem fixas e flutuarem sozinhas
+  // partículas fixas e flutuantes
   const particles = useMemo(() => 
     Array.from({ length: 60 }).map((_, i) => ({
       id: i,
@@ -29,7 +29,7 @@ export default function AnimatedBackground({ mousePosition }: AnimatedBackground
   return (
     <div className="fixed inset-0 pointer-events-none z-0 bg-[#0a0a0a] overflow-hidden">
       
-      {/* 2. GLOW QUE SEGUE O MOUSE */}
+      {/* GLOW */}
       <motion.div
         className="absolute w-[600px] h-[600px] rounded-full"
         style={{
@@ -42,7 +42,7 @@ export default function AnimatedBackground({ mousePosition }: AnimatedBackground
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* 3. GRID COM EFEITO LANTERNA (Revelado pelo mouse) */}
+      {/* EFEITO LANTERNA */}
       <div 
         className="absolute inset-0 z-10" 
         style={{
@@ -56,7 +56,7 @@ export default function AnimatedBackground({ mousePosition }: AnimatedBackground
         }}
       />
 
-      {/* 4. ORBS PARALLAX */}
+      {/* ORBS PARALLAX */}
       <motion.div
         className="absolute top-20 left-1/4 w-96 h-96 rounded-full opacity-20"
         style={{
@@ -66,7 +66,7 @@ export default function AnimatedBackground({ mousePosition }: AnimatedBackground
         }}
       />
 
-      {/* 5. PARTICULAS MEMORIZADAS (Flutuam sem interagir com o mouse) */}
+      {/* PARTICULAS */}
       <div className="absolute inset-0">
         {particles.map((particle) => (
           <motion.div

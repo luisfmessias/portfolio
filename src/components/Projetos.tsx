@@ -6,7 +6,6 @@ import {
   useTransform,
 } from 'framer-motion'
 
-// Imagens dos projetos
 import milhao from '../public/AssetsPortifolio/Projetos/Primeiro Milhão.jpg'
 import powerman from '../public/AssetsPortifolio/Projetos/Power Man.jpg'
 import amaar from '../public/AssetsPortifolio/Projetos/Amaar.jpg'
@@ -16,7 +15,6 @@ import githubblack from '../public/AssetsPortifolio/contato/github.png'
 import portifolio from '../public/AssetsPortifolio/Projetos/portifolio.jpg'
 import tech from '../public/AssetsPortifolio/Projetos/tech.jpg'
 
-// Imagens dos modais
 
 import milhao1 from '../public/AssetsPortifolio/Projetos/modal/milhao1.png'
 import milhao2 from '../public/AssetsPortifolio/Projetos/modal/milhao2.png'
@@ -259,7 +257,7 @@ const Projetos = () => {
                 </div>
               </motion.div>
 
-              {/* BOTÕES — SÓ ADICIONADO onClick */}
+              {/* BOTÕES */}
               <div className="flex gap-4 mt-4">
                 <motion.a
                   onClick={() => setModalProjeto(projeto)}
@@ -284,7 +282,7 @@ const Projetos = () => {
         </div>
       </motion.div>
 
-      {/* ===== MODAL (SÓ SOBREPOSIÇÃO) ===== */}
+      {/* MODAL */}
       <AnimatePresence>
         {modalProjeto && (
           <motion.div
