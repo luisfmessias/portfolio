@@ -149,7 +149,7 @@ const Servicos = () => {
                             <motion.div
                                 variants={iconFloatingVariants}
                                 animate="animate"
-                                className="relative p-5 rounded-2xl border border-cyan-500/30 bg-[#0a1628] shadow-[inset_0_0_20px_rgba(34,211,238,0.1)]"
+                                className="relative p-5 rounded-2xl border border-cyan-500/30 shadow-[inset_0_0_50px_rgba(34,211,238,0.1)]"
                             >
                                 <img
                                     src={service.icon}
