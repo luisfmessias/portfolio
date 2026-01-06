@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
-import eu from '../public/AssetsPortifolio/Skills/EuShowing.png'
+import eu from '../public/AssetsPortifolio/Skills/meShowing.png'
 import next from '../public/AssetsPortifolio/Skills/Next.png'
 import react from '../public/AssetsPortifolio/Skills/react.png'
 import js from '../public/AssetsPortifolio/Skills/js.png'

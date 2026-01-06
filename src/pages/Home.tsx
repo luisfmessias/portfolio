@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import avatar from '../public/AssetsPortifolio/Hero/EuHi.png'
+import avatar from '../public/AssetsPortifolio/Hero/meHi.png'
 import setalado from '../public/AssetsPortifolio/Hero/right-up.png'
 import download from '../public/AssetsPortifolio/Hero/downloads.png'
 import github from '../public/AssetsPortifolio/Hero/githubAzul.png'

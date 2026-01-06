@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import eu from '../public/AssetsPortifolio/Sobre/EuNoFundoAzul.png';
-import balao from '../public/AssetsPortifolio/Sobre/Balao8bits.png';
+import eu from '../public/AssetsPortifolio/Sobre/meAbout.png';
+import balao from '../public/AssetsPortifolio/Sobre/Balao.png';
 
 const Sobre = () => {
   const fadeInUp = {
