@@ -4,9 +4,6 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   base: '/portfolio/',
   plugins: [react()],
-  build: {
-    outDir: 'docs',
-  },
   resolve: {
     alias: {
       '@': '/src',
