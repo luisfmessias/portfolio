@@ -5,7 +5,7 @@ export default defineConfig({
   base: '/portfolio/',
   plugins: [react()],
   build: {
-    outDir: 'docs', // 🔥 ISSO RESOLVE DEFINITIVAMENTE
+    outDir: 'docs',
   },
   resolve: {
     alias: {
