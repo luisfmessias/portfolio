@@ -2,9 +2,6 @@ import { useEffect, useState } from 'react'
 import avatar from '../public/AssetsPortifolio/Hero/meHi.png'
 import setalado from '../public/AssetsPortifolio/Hero/right-up.png'
 import download from '../public/AssetsPortifolio/Hero/downloads.png'
-import github from '../public/AssetsPortifolio/Hero/githubAzul.png'
-import linkedin from '../public/AssetsPortifolio/Hero/linkedinAzul.png'
-import instagram from '../public/AssetsPortifolio/Hero/instagramAzul.png'
 
 export default function Home() {
   const fullStackText = 'Full Stack'
@@ -140,13 +137,6 @@ export default function Home() {
           </a>
         </div>
 
-        <div className={`flex gap-5 transition-all duration-700 ${showSocials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          {[github, linkedin, instagram].map((icon, index) => (
-            <div key={index} className="w-10 h-10 rounded-full border border-[#044D4E] flex items-center justify-center shadow-[0_0_10px_#00c5c818] hover:shadow-[0_0_100px_#00C5C8] transition-all duration-300 hover:scale-110 hover:rotate-[20deg] hover:cursor-pointer">
-              <img src={icon} className="w-5 h-5" />
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   )

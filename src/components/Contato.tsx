@@ -17,10 +17,10 @@ const Contato = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, ease: "easeOut" } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
     }
   }
 
@@ -28,45 +28,46 @@ const Contato = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { 
-        staggerChildren: 0.15, 
-        delayChildren: 0.2  
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
       }
     }
   }
 
-  
+
   const singleIconVariants = {
     hidden: { opacity: 0, x: -30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
-      transition: { type: "spring", stiffness: 120 } 
+      transition: { type: "spring", stiffness: 120 }
     }
   }
 
   return (
     <footer id='contato' className="min-h-screen flex items-center justify-center bg-white mt-60 px-4 py-20">
-      <motion.div 
+      <motion.div
         className="text-center text-black flex flex-col items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        
+
         <motion.h1 variants={itemVariants} className=" ctt text-7xl mb-2 font-poppins font-bold">
           Vamos construir algo <br /> sério!
         </motion.h1>
-        
+
         <motion.p variants={itemVariants} className="text-xl mt-10 tracking-wide font-roboto font-medium">
-          Da ideia aos detalhes finais, cada projeto é pensado com intenção e clareza. <br /> 
+          Da ideia aos detalhes finais, cada projeto é pensado com intenção e clareza. <br />
           Se isso fez sentido pra você, o contato está logo abaixo.
         </motion.p>
 
         <motion.a
           variants={itemVariants}
-          href="#projetos"
+          href="https://wa.me/5544997644085"
+          target='_blank'
           className="
             relative overflow-hidden flex items-center justify-center
             px-9 py-4 rounded-xl mt-10 bg-transparent font-bold
@@ -85,20 +86,20 @@ const Contato = () => {
         </motion.a>
 
         {/* CONTAINER DAS REDES SOCIAIS */}
-        <motion.div 
+        <motion.div
           variants={socialGroupVariants}
           className="flex justify-center space-x-10 mt-10 p-5 rounded-3xl shadow-[0_0_10px_rgba(0,0,0,0.1)] w-fit mx-auto"
         >
           {[
-            { src: wpp, alt: "WhatsApp", url: "https://wa.me/5511999999999" },
-            { src: insta, alt: "Instagram", url: "https://www.instagram.com/luisfernandosilva8855" },
-            { src: linkedin, alt: "LinkedIn", url: "https://www.linkedin.com/in/luisfernandosilva8855" },
-            { src: gh, alt: "GitHub", url: "https://github.com/luisfernandosilva8855" }
+            { src: wpp, alt: "WhatsApp", url: "https://wa.me/5544997644085" },
+            { src: insta, alt: "Instagram", url: "https://www.instagram.com/luisf.mss/" },
+            { src: linkedin, alt: "LinkedIn", url: "https://www.linkedin.com/in/luisfmessias/" },
+            { src: gh, alt: "GitHub", url: "https://github.com/luisfmessias" }
           ].map((social, index) => (
-            <motion.a 
+            <motion.a
               key={index}
-              href={social.url} 
-              target="_blank" 
+              href={social.url}
+              target="_blank"
               rel="noopener noreferrer"
               variants={singleIconVariants}
               whileHover={{ scale: 1.4, rotate: 5 }}
@@ -109,9 +110,14 @@ const Contato = () => {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <p className="mt-8 font-poppins font-bold tracking-wide text-gray-800">
+          <a
+            href="mailto:luisfernandosilva8855@gmail.com"
+            className="hover:underline font-medium mt-6 block text-lg"
+          >
             luisfernandosilva8855@gmail.com
-          </p>
+          </a>
+
+
         </motion.div>
 
       </motion.div>

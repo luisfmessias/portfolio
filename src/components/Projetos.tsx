@@ -57,7 +57,7 @@ const Projetos = () => {
         imagens: [milhao1, milhao2],
         techp:
           'Organizar dados financeiros complexos sem poluir a interface.',
-        linkRepo: '#',
+        linkRepo: 'https://github.com/luisfmessias/primeiro-milhao',
         linkOnline: '#',
         funcionalidades:
           'Simulação de juros compostos • Visualização clara de crescimento • Sessão de histórico de calculos',
@@ -79,7 +79,7 @@ const Projetos = () => {
         imagens: [power1, power2],
         techp:
           'Transformar métricas em insights claros.',
-        linkRepo: '#',
+        linkRepo: 'https://github.com/luisfmessias/PowerMan-Barbearia',
         linkOnline: '#',
         funcionalidades:
           'Agendamento em tempo real • Gestão de barbeiros e serviços • Notificações automáticas para clientes',
@@ -101,7 +101,7 @@ const Projetos = () => {
         imagens: [portifolio1, portifolio2],
         techp:
           'Criar impacto visual sem perder performance.',
-        linkRepo: '#',
+        linkRepo: 'https://github.com/luisfmessias/portfolio',
         linkOnline: '#',
         funcionalidades:
           'Seções animadas • Design responsivo • Interação com cursor e animações suaves',
@@ -123,7 +123,7 @@ const Projetos = () => {
         imagens: [amaar1, amaar2],
         techp:
           'Criar empatia e confiança no usuário.',
-        linkRepo: '#',
+        linkRepo: 'https://github.com/luisfmessias/ONG-AMAAR',
         linkOnline: '#',
         funcionalidades:
           'Cadastro detalhado de animais abandonados • Formulário inteligente de apadrinhamento • Sistema de doação integrado com Pix',
@@ -145,7 +145,7 @@ const Projetos = () => {
         imagens: [tech1, tech2],
         techp:
           'Criar impacto visual sem perder performance.',
-        linkRepo: '#',
+        linkRepo: 'https://github.com/luisfmessias/LFTechStore',
         linkOnline: '#',
         funcionalidades:
           'Filtros dinâmicos de produtos • Animações de transição entre categorias • Exibição detalhada de produtos',
@@ -167,7 +167,7 @@ const Projetos = () => {
         imagens: [nike1, nike2],
         techp:
           'Criar impacto visual sem perder performance.',
-        linkRepo: '#',
+        linkRepo: 'https://github.com/luisfmessias/NikeLF',
         linkOnline: '#',
         funcionalidades:
           'Transições fluidas entre seções • Foco em tipografia e design minimalista • Exibição imersiva de produtos',
@@ -270,6 +270,7 @@ const Projetos = () => {
 
                 <motion.a
                   href={projeto.modal.linkRepo}
+                  target='_blank'
                   whileTap={{ scale: 0.95 }}
                   className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-transparent border border-white border-b-8 text-white text-sm"
                 >
@@ -355,6 +356,7 @@ const Projetos = () => {
                   <h3 className='font-semibold text-black text-2xl mb-5'>Ver o código</h3>
                   <a
                     href={modalProjeto.modal.linkRepo}
+                    target='_blank'
                     className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-transparent border border-black border-b-8 text-black text-lg"
                   >
                     Ver código
