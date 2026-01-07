@@ -11,7 +11,7 @@ import powerman from '../public/AssetsPortifolio/Projetos/Power Man.jpg'
 import amaar from '../public/AssetsPortifolio/Projetos/Amaar.jpg'
 import nike from '../public/AssetsPortifolio/Projetos/Nike.jpg'
 import github from '../public/AssetsPortifolio/Projetos/github.png'
-import githubblack from '../public/AssetsPortifolio/contato/github.png'
+import githubblack from '../public/AssetsPortifolio/Contato/github.png'
 import portifolio from '../public/AssetsPortifolio/Projetos/portifolio.jpg'
 import tech from '../public/AssetsPortifolio/Projetos/tech.jpg'
 
