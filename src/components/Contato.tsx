@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react' 
 import { motion } from 'framer-motion'
 import wpp from '../public/AssetsPortifolio/Contato/whatsapp.png'
 import insta from '../public/AssetsPortifolio/Contato/social-media.png'
