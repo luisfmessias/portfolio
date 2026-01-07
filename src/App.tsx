@@ -1,11 +1,11 @@
 import { useState } from 'react' 
 import { BrowserRouter as Router } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Projetos from './components/projetos'
+import Projetos from './components/Projetos'
 import Home from './pages/Home'
 import Sobre from './components/Sobre'
 import Skills from './components/Skills'  
-import Servicos from './components/Serviços'
+import Serviços from './components/Serviços'
 import Contato from './components/Contato'
 import AnimatedBackground from './components/grid'
 
@@ -34,7 +34,7 @@ function App() {
           <Projetos />
           <Sobre />
           <Skills />
-          <Servicos />
+          <Serviços />
           <Contato />
         </div>
       </Router>
