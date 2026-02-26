@@ -18,11 +18,11 @@ O objetivo deste projeto é demonstrar minha evolução técnica, cuidado com UI
 
 ## Funcionalidades
 
-- Interface moderna e responsiva
-- Animações suaves com Framer Motion
-- Seção de projetos com foco técnico (UI, UX, performance)
-- Layout otimizado para desktop e mobile
-- Código organizado e componentizado
+- Interface moderna e responsiva.
+- Animações suaves com Framer Motion.
+- Seção de projetos com foco técnico (UI, UX, performance).
+- Layout otimizado para desktop e mobile.
+- Código organizado e componentizado.
 
 ---
 
