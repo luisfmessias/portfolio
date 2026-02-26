@@ -1,11 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
+const isVercel = !!process.env.VERCEL
+
 export default defineConfig({
-  base: '/',
+  base: isVercel ? '/' : '/portfolio/',
   plugins: [react()],
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
+    emptyOutDir: true,
   },
   resolve: {
     alias: {
