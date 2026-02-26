@@ -1,4 +1,7 @@
 {
   "buildCommand": "pnpm build",
-  "outputDirectory": "docs"
+  "outputDirectory": "docs",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
